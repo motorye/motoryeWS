@@ -1,0 +1,57 @@
+@Test
+	public void twoDimensionalArray() {
+		/*
+		 * 声明二维数组
+		 * [][]:第一个是行数组，第二个是列数组
+		 */
+		int twoDimensionalArray [][];
+		/*
+		 * 二维数组初始化
+		 * 静态初始化
+		 * 动态初始化
+		 */
+		//静态初始化：
+		int twoDimensionalArray2 [][] = {{3, 1, 4}, {3, 2, 5}, {3, 4}};
+		//动态初始化：
+		twoDimensionalArray = new int[3][];
+		twoDimensionalArray = new int[3][3];
+		for (int i = 0; i < twoDimensionalArray.length; i++) {
+			for (int j = 0; j < twoDimensionalArray[i].length; j++) {
+				System.out.print(twoDimensionalArray[i][j]+" ");
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	@Test
+	/* 打印 
+	 *       *
+	 *       *
+	 *       *
+	 *    ******** 
+	 *       *
+	 *       *
+	 *       *
+	 */
+	public void printTwoDimensionalArray() {
+		int twoDimensionalArray[][]	 = new int[8][8]; 
+		for (int i = 0; i < twoDimensionalArray.length; i++) {
+			for (int j = 0; j < twoDimensionalArray.length; j++) {
+				if(i != 3) {
+					if(j != 3) {
+						System.out.print(" ");
+					} else {
+						if(twoDimensionalArray[i][j]==0) {
+							System.out.print("*");
+						}
+					}
+				} else {
+					if(twoDimensionalArray[i][j]==0) {
+						System.out.print("*");
+					}
+				}
+			}
+			System.out.println();
+		}
+	}
