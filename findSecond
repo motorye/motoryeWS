@@ -1,0 +1,45 @@
+@Test
+	public void find_maxSecond() {
+		int[] array = {0, 1, 4, 8, 6, 5, 7};
+		int max = array[0];
+		int maxSecond = -1;
+		for(int i = 1; i < array.length; i++) {
+			/*
+			 * 假设数组第一个数最大，第二大是-1，从第二个数开始，
+			 * 如果第二个元素比max大，更新maxSecond，继续更新max，
+			 * 如果第二个元素比max小，max不变：
+			 * 		如果元素比maxSecond大，更新maxSecond = array[i]
+			 * 
+			 */
+			if(max < array[i]) {
+				maxSecond = max;
+				max = array[i];
+			}
+			if(max > array[i]) {
+				if(maxSecond < array[i]) {
+					maxSecond = array[i];
+				}
+			}
+ 		}
+		System.out.println(maxSecond);
+	}
+	
+	@Test
+	public void find_minSecond() {
+		int[] array = {5, 0, 4, 8, 6, 5, 7};
+		int min = array[0];
+		int minSecond = -1;
+		
+		for (int i = 1; i < array.length; i++) {
+			if(min > array[i]) {
+				minSecond = min;
+				min = array[i];
+			}
+			if(min < array[i]) {
+				if(minSecond > array[i]) {
+					minSecond = array[i];
+				}
+			}
+		}
+		System.out.println(minSecond);
+	}
