@@ -1,0 +1,38 @@
+import java.util.Arrays;
+
+public class MyQueue {
+	private int[] queue;
+	
+	public MyQueue() {
+		queue = new int[0];
+	}
+	
+	/*
+	 * 添加元素到队列
+	 */
+	public void add(int element) {
+		int newQueue[] = new int[queue.length+1];
+		for (int i = 0; i < queue.length; i++) {
+			newQueue[i] = queue[i];
+		}
+		newQueue[queue.length] = element;
+		queue = newQueue;
+	}
+	
+	/*
+	 * 从队列里取元素（先进先出）
+	 */
+	public int poll() {
+		int element = queue[0];
+		int newQueue[] = new int[queue.length-1];
+		for(int i = 0; i < newQueue.length; i++) {
+			newQueue[i] = queue[i+1];
+		}
+		queue = newQueue;
+		return element;
+	}
+	
+	public void show() {
+		System.out.println(Arrays.toString(queue));
+	}
+}
