@@ -1,0 +1,66 @@
+import java.util.Arrays;
+
+public class MyArray {
+	
+	private int[] array;
+	/*
+	 * 构造方法，初始化数组对象长度为0
+	 */
+	public MyArray() {
+		array = new int[0];
+	}
+	
+	/*
+	 * 数组大小，返回数组长度
+	 */
+	public int size() {
+		return array.length;
+	}
+	
+	public void show() {
+		System.out.println(Arrays.toString(array));
+	}
+	
+	/*
+	 * 再数组后面添加元素
+	 */
+	public void add(int element) {
+		int newArr[] = new int[array.length+1];
+		for (int i = 0; i < array.length; i++) {
+			newArr[i] = array[i];
+		}
+		newArr[array.length] = element;
+		array = newArr;
+	}
+	
+	/*
+	 * 删除数组里指定索引的元素
+	 */
+	public void delete(int index) {
+		int newArr[] = new int[array.length-1];
+		for (int i = 0; i < newArr.length; i++) {
+			if(i < index) {
+				newArr[i] = array[i];
+			} else {
+				newArr[i] =array[i+1];
+			}
+		}
+		array = newArr;
+	}
+	/*
+	 * 在数组指定位置插入元素
+	 */
+	public void insert(int index, int element) {
+		int newArr[] = new int[array.length+1];
+		for (int i = 0; i < array.length; i++) {
+			if(i < index){
+				newArr[i] = array[i];
+			} else {
+				newArr[i+1] = array[i];
+			}
+		}
+		newArr[index] = element;
+		array = newArr;
+	}
+	
+}
