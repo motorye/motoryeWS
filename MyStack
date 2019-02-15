@@ -1,0 +1,42 @@
+import java.util.Arrays;
+
+public class MyStack {
+	
+	private int[] stack;
+	
+	public MyStack() {
+		stack = new int[0];
+	}
+	
+	/*
+	 * 压入元素进栈
+	 */
+	public void push(int element) {
+		int newStack[] = new int[stack.length+1];
+		for (int i = 0; i < stack.length; i++) {
+			newStack[i] = stack[i];
+		}
+		newStack[stack.length] = element;
+		stack = newStack;
+	}
+	
+	/*
+	 * 取出栈顶元素（弹出栈）
+	 */
+	public int pop() {
+		int element = stack[stack.length-1];
+		int newStack[] = new int[stack.length-1];
+		for (int i = 0; i < newStack.length; i++) {
+			newStack[i] = stack[i];
+		}
+		stack = newStack;
+		return element;
+	}
+	
+	/*
+	 * 显示栈里元素
+	 */
+	public void show() {
+		System.out.println(Arrays.toString(stack));
+	}
+}
